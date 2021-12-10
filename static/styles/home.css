@@ -1,0 +1,60 @@
+html{
+	height: 100vh;
+	background: rgb(16,45,66);
+	background: -moz-linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
+	background: linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#102d42",endColorstr="#02426f",GradientType=1);
+	padding: 0 5em;
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.board{
+	height: 75vh;
+	width: 75vh;
+	background-color: rgba(0, 0, 0, .2);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+cell{
+	width: 14.25%;
+	height: 14.25%;
+	background-color: rgba(255, 255, 255, .5);
+	transition: all .5s ease-in-out;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+cell:hover{
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.cross{
+	background-image: url('../img/cross.png');
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.circles{
+	background-image: url('../img/circle.png');
+	background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cross:hover, .circles:hover{
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.cell:after{
+	position:absolute;
+	font-size: 10px;
+}
