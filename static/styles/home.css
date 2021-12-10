@@ -1,10 +1,11 @@
 html{
 	height: 100vh;
-	background: rgb(16,45,66);
+	/* background: rgb(16,45,66);
 	background: -moz-linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
 	background: -webkit-linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
 	background: linear-gradient(0deg, rgba(16,45,66,1) 0%, rgba(10,57,89,1) 59%, rgba(2,66,111,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#102d42",endColorstr="#02426f",GradientType=1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#102d42",endColorstr="#02426f",GradientType=1); */
+	background-color: #212121;
 	padding: 0 5em;
 	flex-direction: column;
 	display: flex;
@@ -16,45 +17,92 @@ html{
 .board{
 	height: 75vh;
 	width: 75vh;
-	background-color: rgba(0, 0, 0, .2);
+	background-color: rgba(0, 0, 0, .5);
 	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	padding: 15px 0;
+	justify-content: center;
+	border-radius: 10px;
+	position: relative;
+}
+
+cover{
+	position: absolute;
+	width: 95%;
+	height: 95%;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 9999;
 }
 
 cell{
-	width: 14.25%;
-	height: 14.25%;
-	background-color: rgba(255, 255, 255, .5);
+	width: 12%;
+	height: 12%;
+	background-color: rgb(179 30 30 / 50%);
 	transition: all .5s ease-in-out;
 	border: 1px solid black;
 	border-radius: 5px;
+	padding: 10px;
+	margin: 5px;
 }
 
 cell:hover{
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgb(179 30 30 / 100%);
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+  background-color: rgb(179 30 30 / 100%);
+}
+
+.character-counter{
+	display: none;
 }
 
 .cross{
-	background-image: url('../img/cross.png');
-	background-size: contain;
-    background-repeat: no-repeat;
+	/* background-image: url('../img/cross.svg'); */
+	background-color: rgb(179 30 30 / 100%);
+	mask-image: url('../img/cross.svg');
+	mask-size: 50px;
+	mask-repeat: no-repeat;
+	mask-position: center;
+
+	-webkit-mask-image: url('../img/cross.svg');
+	-webkit-mask-size: 50px;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	border: 1px solid white;
 }
 
 .circles{
-	background-image: url('../img/circle.png');
-	background-size: contain;
-    background-repeat: no-repeat;
+	/* background-image: url(); */
+	background-color: rgb(179 30 30 / 100%);
+	mask-image: url('../img/circle.svg');
+	mask-size: 50px;
+	mask-repeat: no-repeat;
+	mask-position: center;
+
+	-webkit-mask-position: center;
+	-webkit-mask-image: url('../img/circle.svg');
+	-webkit-mask-size: 50px;
+	-webkit-mask-repeat: no-repeat;
+	border: 1px solid white;
 }
 
 .cross:hover, .circles:hover{
-	cursor: not-allowed;
-	pointer-events: none;
+	cursor: not-allowed !important;
+	pointer-events: none !important;
 }
 
-.cell:after{
-	position:absolute;
-	font-size: 10px;
+cell span{
+	color: #fff;
+    font-family: cursive;
+}
+
+h4{
+	background: rgba(0,0,0,.5);
+    padding: 5%;
+    font-family: cursive;
+	color: #fff;
 }

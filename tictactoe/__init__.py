@@ -411,6 +411,13 @@ class Game:
                 "symbol": "-",
                 "eval_board": eval_board,
             }
+        else:
+            eval_board = self.board.get_evaluated_board()
+            return {
+                "won": False,
+                "symbol": "-",
+                "eval_board": eval_board,
+            }
 
     def remove_move(self, move):
 

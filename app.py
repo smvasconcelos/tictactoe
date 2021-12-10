@@ -21,7 +21,7 @@ def start_game():
 
     global session_data
     attack = request.args.get("attack")
-    if attack == "True":
+    if attack == "true":
         attack = True
     else:
         attack = False

@@ -47,8 +47,10 @@ const play_ai = () => {
 
 		});
 
-		if (response["won"] == true)
+		if (response["won"] == true) {
+			$("cover").fadeIn(1000);
 			alert("WON")
+		}
 
 
 		console.log("--------------- NOVA RODADA --------------------");
@@ -68,45 +70,55 @@ $(document).ready(function () {
 
 	}
 
-	$.get("/start_game", { attack: 'True' }, (response) => {
+	$("#start").on("click", (e) => {
 
-		// console.log(response);
-		const board = response["eval_board"];
-		const keys = Object.keys(board);
+		var attack = $("#start_player").prop("checked");
+		$("#start").addClass("disabled");
 
-		keys.forEach((tuple, index) => {
-			var symbol = board[tuple]['symbol'];
-			var value = board[tuple]['value']
-			// console.log({ tuple, index, symbol, value });
+		$.get("/start_game", { attack: !attack }, (response) => {
 
-			var play = tuple.replace("(", "");
-			play = play.replace(")", "");
-			play = play.replace(" ", "");
-			play = play.split(",");
-			const id = `${play[0]}${play[1]}`
+			// console.log(response);
+			const board = response["eval_board"];
+			const keys = Object.keys(board);
 
-			if (symbol != undefined) {
+			keys.forEach((tuple, index) => {
+				var symbol = board[tuple]['symbol'];
+				var value = board[tuple]['value']
+				// console.log({ tuple, index, symbol, value });
 
-				if (symbol == "O")
-					var type = "circles";
-				else
-					var type = "cross";
+				var play = tuple.replace("(", "");
+				play = play.replace(")", "");
+				play = play.replace(" ", "");
+				play = play.split(",");
+				const id = `${play[0]}${play[1]}`
 
-				play = play.map(item => {
-					return parseInt(item);
-				});
+				if (symbol != undefined) {
 
-				$(`#${id}`).addClass(type);
-				if (value == null)
-					$(`#${id}`).html("");
+					if (symbol == "O")
+						var type = "circles";
+					else
+						var type = "cross";
 
-			} else {
+					play = play.map(item => {
+						return parseInt(item);
+					});
 
-				$(`#${id}`).html(`<span>${value}</span>`);
+					$(`#${id}`).addClass(type);
+					if (value == null)
+						$(`#${id}`).html("");
 
-			}
+				} else {
+
+					$(`#${id}`).html(`<span>${value}</span>`);
+
+				}
+
+			});
+
+			$("cover").hide(1000);
 
 		});
+
 
 	});
 
@@ -162,8 +174,10 @@ $(document).ready(function () {
 
 			});
 
-			if (response["won"] == true)
+			if (response["won"] == true) {
 				alert("WON")
+				$("cover").fadeIn(1000);
+			}
 			else
 				play_ai()
 
