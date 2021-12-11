@@ -144,33 +144,62 @@ class Board:
         last_index = 0
         symbol = None
         ratio = 0
-        info = {"X": 0, "O": 0}
+        info = {
+            "X": 0,
+            "O": 0,
+        }
 
         for index in range(len(side)):
 
             if side[index] != "-":
+
                 if symbol != side[index]:
+
+                    start = index
                     symbol = side[index]
                     last_index = index
                     ratio = 1
+
                 elif index == last_index + 1:
+
                     ratio += 1
-                    info[symbol] = ratio
                     last_index = index
+                    info[symbol] = ratio
 
         return info
 
-    def evaluate_side(self, side, symbol, pos_key):
+    def is_blocked(self, side, pos, symbol):
+
+        side_len = len(side)
+        if side_len < pos:
+
+            return False
+
+        if pos > 0:
+
+            if side[pos - 1] == self.reverse_symbol[symbol]:
+
+                return True
+
+        if pos + 1 < side_len:
+
+            if side[pos + 1] == self.reverse_symbol[symbol]:
+
+                return True
+
+        return False
+
+    def evaluate_side(self, side, symbol, pos_key, direction):
 
         side = list(side)
         i, j = pos_key
 
-        if j == 0 or j == 0:
+        if i == 0 or j == 0:
             length = 0
         else:
             length = self.len - i if i > j else self.len - j
 
-        is_corner = lambda x: True if x <= 2 or x >= 5 else False
+        is_corner = lambda x: True if x - 1 <= 2 or x + 1 >= 5 else False
 
         free_space = side.count("-")
 
@@ -179,16 +208,32 @@ class Board:
         count = info[symbol]
         reverse_count = info[self.reverse_symbol[symbol]]
 
-        count = abs(count - reverse_count)
+        # count = abs(count - reverse_count)
 
-        ratio = count * 2 if count >= 2 else count
+        if is_corner(length) and info[symbol] != 3:
 
-        corner = 0.8 if is_corner(length) else 1
+            ratio_corner = 0.8
+            ratio = count * 2
 
-        val = ratio * corner + free_space
-        # print(f"R {ratio} C {e_corner} L {length} F {free_space}")
+        else:
 
-        return round(val / 10, 3)
+            ratio_corner = 1
+            ratio = count * 2 if count >= 2 else count
+
+        val = ((ratio * ratio_corner) + free_space) / 10
+
+        position = i if direction == "vertical" else j
+
+        if self.is_blocked(side, position, symbol):
+
+            val -= val / 5
+
+        if count != 0 or reverse_count != 0:
+            print(
+                f"R {ratio} C {ratio_corner} L {length} F {free_space} V {val} I {info}"
+            )
+
+        return round(val, 3)
 
     def evaluate_board(self, play, symbol):
 
@@ -215,11 +260,11 @@ class Board:
                         else:
                             break
 
-                        e_val = self.evaluate_side(side, symbol, pos_key)
+                        e_val = self.evaluate_side(side, symbol, pos_key, direction)
                         val = self.available_moves[pos_key].get_val()
 
-                        f.write(f"info : {pos_key} {pos} {direction} : {side} \n")
-                        f.write(f"values : {e_val} {val}\n")
+                        # f.write(f"info : {pos_key} {pos} {direction} : {side} \n")
+                        # f.write(f"values : {e_val} {val}\n")
 
                         if e_val < val:
                             e_val = val
