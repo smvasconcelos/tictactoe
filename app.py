@@ -11,7 +11,7 @@ session_data = {}
 
 @app.route("/")
 def home():
-
+    """Rota que inicia a aplicação."""
     template = "home.html"
     return render_template(template)
 
@@ -19,6 +19,7 @@ def home():
 @app.route("/start_game")
 def start_game():
 
+    """Rota responsável por iniciar o jogo."""
     global session_data
     attack = request.args.get("attack")
     if attack == "true":
@@ -33,6 +34,7 @@ def start_game():
 
 @app.route("/play")
 def handle_play():
+    """Rota responsável por fazer uma play."""
 
     global session_data
     play = int(request.args.get("i")), int(request.args.get("j"))
@@ -45,4 +47,4 @@ def handle_play():
 
 if __name__ == "__main__":
 
-    app.run(debug=True)
+    app.run(debug=False)
