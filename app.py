@@ -3,11 +3,21 @@ from flask_material import Material
 import tictactoe
 import json
 from waitress import serve
+import webbrowser
 
 app = Flask(__name__)
 Material(app)
 
 session_data = {}
+
+
+def is_port_in_use(port):
+
+    """Confere se uma dada porta port está em uso pelo sistema."""
+    import socket
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        return s.connect_ex(("localhost", port)) == 0
 
 
 @app.route("/")
@@ -48,4 +58,8 @@ def handle_play():
 
 if __name__ == "__main__":
 
-    serve(app, host="0.0.0.0", port=5000)
+    if not is_port_in_use(5000):
+        webbrowser.open("http://localhost:5000/")
+        serve(app, host="0.0.0.0", port=5000)
+    else:
+        webbrowser.open("http://localhost:5000/")

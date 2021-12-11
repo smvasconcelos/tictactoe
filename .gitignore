@@ -8,6 +8,10 @@ __pycache__/
 *Scripts
 *Include
 *.log
+*.spec
+*ico.ico
+*hook-flask_material.py
+dist/
 
 # Distribution / packaging
 bin/
