@@ -2,12 +2,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/smvasconcelos/tictactoe">
-	<h3 align="center">Tic Tac Toe 7x7</h3>
+	<h2 align="center">Tic Tac Toe 7x7</h2>
   </a>
   <p align="center">
     Projeto final desenvolvido para a disciplina de IA.
     <br />
   </p>
+  <span><a href="https://smvasconcelos.github.io/tictactoe/"> Link para documentação do projeto. <a/></span>
 </p>
 
 ### Como utilizar
