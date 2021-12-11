@@ -12,7 +12,7 @@
     <br />
 </p>
 
-### Como utilizar
+# Como utilizar
 
 Inicialmente certifique-se que o python 3.9 ou superior está instalado na sua máquina, em seguida será necessário o git ou então que se faça o download do zip do projeto e prossiga com as instruções para rodar o projeto.
 
