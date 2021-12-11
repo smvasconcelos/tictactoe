@@ -9,7 +9,7 @@
     <br />
   </p>
   <p align="center"><a href="https://smvasconcelos.github.io/tictactoe/"> Link para documentação do projeto. <a/></p>
-  <p align="center"><a href="https://github.com/smvasconcelos/tictactoe/raw/master/docs/TicTacToe.exe"> Link para o exe do projeto (Windows Only) <a/></p>
+  <p align="center"><a href="https://github.com/smvasconcelos/tictactoe/releases"> Link para o exe do projeto (Windows Only) <a/></p>
     <br />
 </p>
 
