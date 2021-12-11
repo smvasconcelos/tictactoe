@@ -8,7 +8,7 @@
     Projeto final desenvolvido para a disciplina de IA.
     <br />
   </p>
-  <span><a href="https://smvasconcelos.github.io/tictactoe/"> Link para documentação do projeto. <a/></span>
+  <span align="center"><a href="https://smvasconcelos.github.io/tictactoe/"> Link para documentação do projeto. <a/></span>
 </p>
 
 ### Como utilizar
