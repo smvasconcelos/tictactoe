@@ -70,3 +70,5 @@ e logo em seguida o site do projeto estará rodando no seguinte ip : http://loca
 
 - Para fechar o programa, abra o gerênciador de tarefas e procure por tictactoe.exe e o finalize. Por conveniência preferi não adicionar uma funcionalidade que fecha o programa caso aberto pelo exe.
 - Como o software não é licensiado o windwos acusará de virus.
+- [Releases](https://github.com/smvasconcelos/tictactoe/releases)
+
