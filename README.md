@@ -65,3 +65,7 @@ Em seguida é só rodar o arquivo pricinpal do projeto app.py com o comando :
 ```
 
 e logo em seguida o site do projeto estará rodando no seguinte ip : http://localhost:5000/
+
+## OBS:
+
+Para fechar o programa, abra o gerênciador de tarefas e procure por tictactoe.exe e o finalize. Por conveniência preferi não adicionar uma funcionalidade que fecha o programa caso aberto pelo exe.
