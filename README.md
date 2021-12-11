@@ -12,6 +12,8 @@
     <br />
 </p>
 
+<img alt="Gif da Aplicação" src="docs\tictactoe.gif"  height="430">
+
 # Como utilizar
 
 Inicialmente certifique-se que o python 3.9 ou superior está instalado na sua máquina, em seguida será necessário o git ou então que se faça o download do zip do projeto e prossiga com as instruções para rodar o projeto.
@@ -49,3 +51,11 @@ E por último inicie o ambiente virtual e instale as dependências do python par
 	cd ..
 	pip install -r requirements.txt
 ```
+
+Em seguida é só rodar o arquivo pricinpal do projeto app.py com o comando :
+
+```
+	python app.py
+```
+
+e logo em seguida o site do projeto estará rodando no seguinte ip : http://localhost:5000/
